@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Rsa *rsa = [[Rsa alloc] init];
-        [rsa createKeysWithBitsize:64];
+        [rsa createKeysWithBitsize:128];
         [rsa release]; rsa = nil;
         
         /*BigInt *bigInt = [[BigInt alloc] init];

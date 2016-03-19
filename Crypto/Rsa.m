@@ -46,8 +46,6 @@
 
 - (BOOL)testPrimeNumber:(NSString*)num withAccuracy:(NSUInteger)itr
 {
-    NSString *bin = num;
-    
     BigInt *bigInt = [[BigInt alloc] init];
     NSLog(@"BIN: %@", num);
     num = [bigInt convertBinToDec:num];
@@ -67,20 +65,20 @@
     
     for (int t=0; t<itr; t++)
     {
-        BigInt *bigInt = [[BigInt alloc] init];
-        NSString *a = [self generateOddNumber];
+        NSString *a =@"";
         
-        for (int j=0; j<[a length]; j++) {
-            a = [a stringByReplacingCharactersInRange:NSMakeRange(j, 1) withString:@"0"];
-            if ([[NSString stringWithFormat:@"%c", [bin characterAtIndex:j]] isEqualToString:@"1"])
-                break;
+        if ([num length] > 10)
+        {
+            for (NSUInteger i=1; i<[num length]; i++)
+            {
+                if (i == [num length]-1)
+                    a = [a stringByAppendingString:[NSString stringWithFormat:@"%d", 2 + arc4random() % (9 - 1)]];
+                else
+                    a = [a stringByAppendingString:[NSString stringWithFormat:@"%u", arc4random() % (10)]];
+            }
         }
-        
-        a = [a stringByReplacingCharactersInRange:NSMakeRange([a length]-2, 1) withString:@"1"];
-        //NSLog(@"a: %@", a);
-        a = [bigInt convertBinToDec:a];
-        NSLog(@"a  : %@", a);
-        [bigInt release]; bigInt = nil;
+        else
+            a = [NSString stringWithFormat:@"%ld", 2 + arc4random() % ([num integerValue] - 2)];
         
         /*while (m != 0)
         {
