@@ -17,7 +17,7 @@
 
 - (void)setNewBigInt:(NSString*)x withName:(NSString*)k;
 
-- (NSString*)convertBinToDec:(NSString*)bin;
+- (NSString*)convertBin:(NSString*)bin toBase:(NSUInteger)b;
 
 - (NSString*)subBigInt:(NSString*)x withBigInt:(NSString*)y inBase:(NSUInteger)b;
 - (NSString*)addBigInt:(NSString*)x withBigInt:(NSString*)y inBase:(NSUInteger)b;

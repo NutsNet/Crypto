@@ -48,7 +48,7 @@
 {
     BigInt *bigInt = [[BigInt alloc] init];
     NSLog(@"BIN: %@", num);
-    num = [bigInt convertBinToDec:num];
+    num = [bigInt convertBin:num toBase:10];
     NSLog(@"DEC: %@", num);
     [bigInt release]; bigInt = nil;
     

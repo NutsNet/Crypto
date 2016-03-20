@@ -87,7 +87,7 @@
     return result;
 }
 
-- (NSString*)convertBinToDec:(NSString*)bin
+- (NSString*)convertBin:(NSString*)bin toBase:(NSUInteger)b
 {
     NSUInteger j = 0;
     NSString *dec=@"0";
@@ -112,7 +112,7 @@
                 [self setNewBigInt:pow withName:@"pow"];
                 
                 for (NSUInteger k=0; k<j-1; k++) {
-                    pow = [self mulBigInt:@"pow" withBigInt:@"bitbit" inBase:10];
+                    pow = [self mulBigInt:@"pow" withBigInt:@"bitbit" inBase:b];
                     [listOfBigInt removeObjectForKey:@"pow"];
                     [stackOfBigInt removeObjectForKey:@"pow"];
                     [self setNewBigInt:pow withName:@"pow"];
@@ -126,7 +126,7 @@
             [stackOfBigInt removeObjectForKey:@"dec"];
             [self setNewBigInt:dec withName:@"dec"];
             
-            dec = [self addBigInt:@"dec" withBigInt:@"pow" inBase:10];
+            dec = [self addBigInt:@"dec" withBigInt:@"pow" inBase:b];
             
             [listOfBigInt removeObjectForKey:@"dec"];
             [stackOfBigInt removeObjectForKey:@"dec"];
